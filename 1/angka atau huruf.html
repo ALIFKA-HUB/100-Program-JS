@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cek Karakter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      padding: 20px;
+    }
+    label, input, button {
+      display: block;
+      margin: 10px 0;
+      font-size: 1.1rem;
+      width: 300px;
+    }
+    #result {
+      margin-top: 15px;
+      font-family: monospace;
+      background-color: #222;
+      color: #0f0;
+      padding: 12px;
+      border-radius: 6px;
+      width: fit-content;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cek Karakter</h1>
+  <label for="inputChar">Masukkan sebuah karakter:</label>
+  <input type="text" id="inputChar" maxlength="1" placeholder="Masukkan satu karakter" />
+  <button onclick="cekKarakter()">Cek</button>
+  <div id="result"></div>
+
+  <script>
+    function cekKarakter() {
+      const char = document.getElementById("inputChar").value.trim();
+      const result = document.getElementById("result");
+
+      if (char.length === 0) {
+        alert("Tolong masukkan sebuah karakter!");
+        return;
+      }
+
+      if (/^\d$/.test(char)) {
+        result.textContent = "Karakter tersebut adalah angka.";
+      } else if (/^[a-zA-Z]$/.test(char)) {
+        result.textContent = "Karakter tersebut adalah huruf.";
+      } else {
+        result.textContent = "Karakter tersebut bukan huruf atau angka.";
+      }
+    }
+  </script>
+</body>
+</html>

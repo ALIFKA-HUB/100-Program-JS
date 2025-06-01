@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Sorting List Angka</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9fafb;
+      padding: 30px;
+    }
+    .container {
+      background: #fff;
+      padding: 25px;
+      max-width: 500px;
+      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Sorting List Angka</h2>
+
+    <label for="angka">Masukkan daftar angka (pisahkan dengan koma):</label>
+    <input type="text" id="angka" placeholder="Contoh: 5, 3, 9, 1, 4">
+
+    <button onclick="sortList()">Urutkan</button>
+
+    <div class="result" id="hasil"></div>
+  </div>
+
+  <script>
+    function sortList() {
+      const input = document.getElementById("angka").value;
+      const angkaArr = input.split(",").map(item => parseFloat(item.trim()));
+      
+      if (angkaArr.some(isNaN)) {
+        document.getElementById("hasil").innerHTML = "<p style='color:red;'>Input tidak valid. Pastikan hanya angka dipisah koma.</p>";
+        return;
+      }
+
+      const ascending = [...angkaArr].sort((a, b) => a - b);
+      const descending = [...angkaArr].sort((a, b) => b - a);
+
+      document.getElementById("hasil").innerHTML = `
+        <p><strong>Asli:</strong> ${angkaArr.join(", ")}</p>
+        <p><strong>Urut naik:</strong> ${ascending.join(", ")}</p>
+        <p><strong>Urut turun:</strong> ${descending.join(", ")}</p>
+      `;
+    }
+  </script>
+
+</body>
+</html>

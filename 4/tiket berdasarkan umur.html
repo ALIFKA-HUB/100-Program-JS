@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tiket Berdasarkan Umur</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 500px;
+        }
+        input, button {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            width: 100%;
+        }
+        #output {
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Tiket Berdasarkan Umur</h2>
+        <input type="number" id="umur" placeholder="Masukkan umur anda">
+        <button onclick="cekTiket()">Cek Tiket</button>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function cekTiket() {
+            const umur = parseInt(document.getElementById("umur").value);
+            const output = document.getElementById("output");
+
+            if (isNaN(umur) || umur < 0) {
+                output.innerText = "Silakan masukkan umur yang valid.";
+                return;
+            }
+
+            let kategori = "";
+
+            if (umur <= 5) {
+                kategori = "Gratis (Balita)";
+            } else if (umur <= 12) {
+                kategori = "Anak-anak - Rp10.000";
+            } else if (umur <= 17) {
+                kategori = "Remaja - Rp15.000";
+            } else if (umur <= 59) {
+                kategori = "Dewasa - Rp20.000";
+            } else {
+                kategori = "Lansia - Diskon 50% (Rp10.000)";
+            }
+
+            output.innerText = `Kategori Tiket: ${kategori}`;
+        }
+    </script>
+</body>
+</html>

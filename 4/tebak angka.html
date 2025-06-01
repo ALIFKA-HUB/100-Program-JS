@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Tebak Angka</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+    input {
+      padding: 0.5rem;
+      font-size: 1rem;
+      width: 100%;
+      margin-top: 10px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1e40af;
+    }
+    #message {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>🎯 Tebak Angka (1–10)</h2>
+    <input type="number" id="guessInput" placeholder="Masukkan tebakan Anda (1-10)">
+    <button onclick="checkGuess()">Tebak</button>
+    <p id="message"></p>
+  </div>
+
+  <script>
+    let target = Math.floor(Math.random() * 10) + 1;
+    let attempts = 0;
+
+    function checkGuess() {
+      const guess = parseInt(document.getElementById("guessInput").value);
+      const message = document.getElementById("message");
+      attempts++;
+
+      if (isNaN(guess) || guess < 1 || guess > 10) {
+        message.textContent = "Masukkan angka antara 1 hingga 10!";
+        message.style.color = "red";
+        return;
+      }
+
+      if (guess === target) {
+        message.textContent = `🎉 Selamat! Anda menebak dengan benar dalam ${attempts} percobaan.`;
+        message.style.color = "green";
+        document.getElementById("guessInput").disabled = true;
+      } else if (guess < target) {
+        message.textContent = "Terlalu rendah. Coba lagi!";
+        message.style.color = "#ca8a04";
+      } else {
+        message.textContent = "Terlalu tinggi. Coba lagi!";
+        message.style.color = "#ca8a04";
+      }
+    }
+  </script>
+
+</body>
+</html>

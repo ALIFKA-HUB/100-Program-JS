@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loop dengan Step 2</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+      background-color: #f7f7f7;
+    }
+    pre {
+      background-color: #222;
+      color: #0f0;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>Loop dengan Step 2</h1>
+  <pre id="output"></pre>
+
+  <script>
+    let total = 0;
+    let output = "";
+
+    for (let i = 1; i <= 5; i += 2) {
+      output += i;
+      if (i < 5) {
+        output += " + ";
+      } else {
+        output += " ";
+      }
+      total += i;
+    }
+
+    output += "= " + total;
+
+    document.getElementById("output").textContent = output;
+  </script>
+</body>
+</html>

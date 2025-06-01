@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cek Bilangan Prima</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      padding: 20px;
+    }
+    label, input, button {
+      display: block;
+      margin: 10px 0;
+      font-size: 1.2rem;
+      width: 300px;
+    }
+    #result {
+      margin-top: 15px;
+      font-family: monospace;
+      background-color: #222;
+      color: #0f0;
+      padding: 12px;
+      border-radius: 8px;
+      width: fit-content;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cek Bilangan Prima</h1>
+  <label for="numberInput">Masukkan sebuah bilangan bulat positif:</label>
+  <input type="number" id="numberInput" min="1" placeholder="contoh: 17" />
+  <button onclick="cekPrima()">Cek Prima</button>
+
+  <div id="result"></div>
+
+  <script>
+    function isPrime(num) {
+      if (num <= 1) return false;
+      if (num <= 3) return true;
+      if (num % 2 === 0 || num % 3 === 0) return false;
+
+      for (let i = 5; i * i <= num; i += 6) {
+        if (num % i === 0 || num % (i + 2) === 0) return false;
+      }
+      return true;
+    }
+
+    function cekPrima() {
+      const input = document.getElementById("numberInput").value;
+      const result = document.getElementById("result");
+      const n = Number(input);
+
+      if (!input || isNaN(n) || n < 1 || !Number.isInteger(n)) {
+        alert("Masukkan bilangan bulat positif yang valid!");
+        return;
+      }
+
+      if (isPrime(n)) {
+        result.textContent = `${n} adalah bilangan prima.`;
+      } else {
+        result.textContent = `${n} bukan bilangan prima.`;
+      }
+    }
+  </script>
+</body>
+</html>

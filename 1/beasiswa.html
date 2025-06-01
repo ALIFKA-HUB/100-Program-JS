@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cek Beasiswa Berdasarkan Nilai</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      padding: 20px;
+    }
+    label, input, button {
+      display: block;
+      margin: 10px 0;
+      font-size: 1.2rem;
+      width: 300px;
+    }
+    #result {
+      margin-top: 20px;
+      font-family: monospace;
+      background-color: #222;
+      color: #0f0;
+      padding: 15px;
+      border-radius: 10px;
+      width: fit-content;
+    }
+  </style>
+</head>
+<body>
+  <h1>Penentuan Beasiswa Berdasarkan Nilai</h1>
+  <label for="nilaiInput">Masukkan nilai kamu (0-100):</label>
+  <input type="number" id="nilaiInput" min="0" max="100" placeholder="Contoh: 87" />
+  <button onclick="cekBeasiswa()">Cek Beasiswa</button>
+
+  <div id="result"></div>
+
+  <script>
+    function cekBeasiswa() {
+      const nilai = Number(document.getElementById("nilaiInput").value);
+      const result = document.getElementById("result");
+
+      if (isNaN(nilai) || nilai < 0 || nilai > 100) {
+        alert("Masukkan nilai valid antara 0 sampai 100!");
+        return;
+      }
+
+      if (nilai >= 85) {
+        result.textContent = `Nilai ${nilai} → Mendapat Beasiswa Kategori A (Beasiswa Penuh). 🎉`;
+      } else if (nilai >= 70) {
+        result.textContent = `Nilai ${nilai} → Mendapat Beasiswa Kategori B (Beasiswa Parsial). 🙂`;
+      } else {
+        result.textContent = `Nilai ${nilai} → Tidak mendapat beasiswa. 😞`;
+      }
+    }
+  </script>
+</body>
+</html>

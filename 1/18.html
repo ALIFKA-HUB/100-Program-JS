@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tabel Perkalian</title>
+  <style>
+    body {
+      font-family: monospace;
+      background-color: #121212;
+      color: #0f0;
+      padding: 20px;
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tabel Perkalian 1 sampai 5</h1>
+  <pre id="output"></pre>
+
+  <script>
+    let output = "";
+    for (let i = 1; i <= 5; i++) {
+      for (let j = 1; j <= 2; j++) {
+        output += `${i} x ${j} = ${i * j}  `;
+      }
+      output += "\n";
+    }
+    document.getElementById("output").textContent = output;
+  </script>
+</body>
+</html>

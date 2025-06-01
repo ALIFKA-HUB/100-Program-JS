@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pola Bintang</title>
+  <style>
+    body {
+      font-family: monospace, monospace;
+      background-color: #121212;
+      color: #00ff00;
+      padding: 20px;
+    }
+    pre {
+      background-color: #222;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pola Bintang</h1>
+  <pre id="output"></pre>
+
+  <script>
+    let output = "";
+    for (let i = 1; i <= 5; i++) {
+      output += "*".repeat(i) + "\n";
+    }
+    document.getElementById("output").textContent = output;
+  </script>
+</body>
+</html>

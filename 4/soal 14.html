@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Cek Huruf Vokal / Konsonan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f5f9;
+      padding: 30px;
+    }
+    .container {
+      background-color: #fff;
+      padding: 25px;
+      max-width: 450px;
+      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #1abc9c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #16a085;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Cek Huruf Vokal / Konsonan</h2>
+
+    <label for="huruf">Masukkan sebuah huruf:</label>
+    <input type="text" id="huruf" maxlength="1" placeholder="Contoh: A">
+
+    <button onclick="cekHuruf()">Cek</button>
+
+    <div class="result" id="output"></div>
+  </div>
+
+  <script>
+    function cekHuruf() {
+      let huruf = document.getElementById("huruf").value.trim().toUpperCase();
+      let output = document.getElementById("output");
+
+      if (huruf.length !== 1 || !huruf.match(/[A-Z]/)) {
+        output.innerHTML = `<p style="color:red">${huruf || '(kosong)'} bukan berupa huruf.</p>`;
+      } else if ("AEIOU".includes(huruf)) {
+        output.innerHTML = `<p>${huruf} adalah huruf <strong>vokal</strong>.</p>`;
+      } else {
+        output.innerHTML = `<p>${huruf} adalah huruf <strong>konsonan</strong>.</p>`;
+      }
+    }
+  </script>
+
+</body>
+</html>

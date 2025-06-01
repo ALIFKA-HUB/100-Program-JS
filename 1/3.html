@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Alifka</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .item {
+      font-size: 1.2rem;
+      margin: 5px 0;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="output"></div>
+
+  <script>
+    const output = document.getElementById('output');
+    const chars = 'ABCD';
+
+    for (let i = 0; i < chars.length; i++) {
+      const index = i + 1;
+      const char = chars[i];
+      const div = document.createElement('div');
+      div.className = 'item';
+      div.textContent = `(${index}, '${char}'). Cerdas`;
+      output.appendChild(div);
+    }
+  </script>
+</body>
+</html>

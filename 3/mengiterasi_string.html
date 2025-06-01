@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mengiterasi String</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+    input {
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+    #output {
+      margin-top: 1rem;
+      font-family: monospace;
+      white-space: pre-wrap;
+      background: #eee;
+      padding: 1rem;
+      border-radius: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Mengiterasi String</h1>
+    <input type="text" id="inputString" placeholder="Masukkan string" />
+    <button onclick="iterasiString()">Tampilkan Karakter</button>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    function iterasiString() {
+      const str = document.getElementById("inputString").value;
+      let hasil = "";
+
+      for (let i = 0; i < str.length; i++) {
+        hasil += str[i] + "\\n";
+      }
+
+      document.getElementById("output").textContent = hasil;
+    }
+  </script>
+</body>
+</html>

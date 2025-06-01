@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Penilaian Siswa</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef2f7;
+      padding: 30px;
+    }
+    .container {
+      background-color: #fff;
+      padding: 25px;
+      max-width: 500px;
+      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #34495e;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #2ecc71;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #27ae60;
+    }
+    .result {
+      margin-top: 25px;
+      font-size: 1rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Penilaian Siswa</h2>
+
+    <label for="nama">Masukkan nama siswa:</label>
+    <input type="text" id="nama" placeholder="Contoh: Andi">
+
+    <label for="nilai">Masukkan nilai siswa (0–100):</label>
+    <input type="number" id="nilai" placeholder="Contoh: 85" min="0" max="100">
+
+    <button onclick="cekNilai()">Tentukan Grade</button>
+
+    <div class="result" id="output"></div>
+  </div>
+
+  <script>
+    function cekNilai() {
+      const nama = document.getElementById("nama").value.trim();
+      const nilai = parseFloat(document.getElementById("nilai").value);
+      let grade = "";
+
+      if (!nama || isNaN(nilai)) {
+        document.getElementById("output").innerHTML = "<p style='color:red'>Nama dan nilai harus diisi dengan benar.</p>";
+        return;
+      }
+
+      if (nilai < 0 || nilai > 100) {
+        document.getElementById("output").innerHTML = "<p style='color:red'>Nilai harus antara 0 dan 100.</p>";
+        return;
+      }
+
+      if (nilai >= 90) {
+        grade = 'A';
+      } else if (nilai >= 80) {
+        grade = 'B';
+      } else if (nilai >= 70) {
+        grade = 'C';
+      } else if (nilai >= 60) {
+        grade = 'D';
+      } else {
+        grade = 'E';
+      }
+
+      document.getElementById("output").innerHTML = `
+        <p><strong>Nama Siswa:</strong> ${nama}</p>
+        <p><strong>Nilai:</strong> ${nilai}</p>
+        <p><strong>Grade:</strong> ${grade}</p>
+      `;
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pengelompokan Tugas</title> 
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+    input {
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+    #output {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Pengelompokan Tugas</h1>
+    <input type="number" id="nilai" placeholder="Masukkan nilai tugas (0-100)" />
+    <button onclick="kelompokkan()">Kelompokkan</button>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    function kelompokkan() {
+      const nilai = parseFloat(document.getElementById("nilai").value);
+      let hasil = "";
+
+      if (isNaN(nilai) || nilai < 0 || nilai > 100) {
+        hasil = "Masukkan nilai antara 0 hingga 100.";
+      } else if (nilai >= 85) {
+        hasil = "Kategori: A (Sangat Baik)";
+      } else if (nilai >= 70) {
+        hasil = "Kategori: B (Baik)";
+      } else if (nilai >= 55) {
+        hasil = "Kategori: C (Cukup)";
+      } else if (nilai >= 40) {
+        hasil = "Kategori: D (Kurang)";
+      } else {
+        hasil = "Kategori: E (Sangat Kurang)";
+      }
+
+      document.getElementById("output").textContent = hasil;
+    }
+  </script>
+</body>
+</html>

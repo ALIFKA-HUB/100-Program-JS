@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vokal or konsonan</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background: #f5f5f5; }
+        .container { background: white; padding: 2rem; border-radius: 1rem; box-shadow: 0 0 10px rgba(0,0,0,0.1); width: 90%; max-width: 600px; }
+        input, button { margin: 0.5rem 0; padding: 0.5rem; width: 100%; }
+        pre { background: #eee; padding: 1rem; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>vokal or konsonan</h2>
+        <div id="app">
+            <label>Masukkan sebuah huruf = <input id="input0" type="text"></label><br><button onclick="handleClick()">Jalankan</button>
+        </div>
+        <pre id="output"></pre>
+    </div>
+    <script>
+        
+function handleClick() {
+    document.getElementById("output").innerText = "";
+    let huruf = document.getElementById("input0").value.toUpperCase();
+
+if (/^[A-Z]$/.test(huruf)) {
+    if (['A', 'E', 'I', 'O', 'U'].includes(huruf)) {
+        document.getElementById("output").innerText += huruf + " adalah huruf vokal.\n";
+    } else {
+        document.getElementById("output").innerText += huruf + " adalah huruf konsonan.\n";
+    }
+} else {
+    document.getElementById("output").innerText += huruf + " bukan berupa huruf.\n";
+}
+}
+
+    </script>
+</body>
+</html>

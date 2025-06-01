@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Perhitungan Tabung</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #f0f4f8;
+    }
+    .container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin: 1rem 0 0.5rem;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 1.5rem;
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1d4ed8;
+    }
+    pre {
+      margin-top: 1.5rem;
+      background-color: #f9fafb;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid #e5e7eb;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Perhitungan Tabung</h2>
+    <label for="tinggi">Masukkan tinggi tabung:</label>
+    <input id="inputTinggi" type="number" placeholder="Contoh: 10">
+
+    <label for="jari">Masukkan jari-jari tabung:</label>
+    <input id="inputJari" type="number" placeholder="Contoh: 5">
+
+    <button onclick="hitungTabung()">Hitung</button>
+
+    <pre id="output"></pre>
+  </div>
+
+  <script>
+    function hitungTabung() {
+      const t = parseFloat(document.getElementById("inputTinggi").value);
+      const r = parseFloat(document.getElementById("inputJari").value);
+      const output = document.getElementById("output");
+      output.innerText = "";
+
+      if (isNaN(t) || isNaN(r) || t <= 0 || r <= 0) {
+        output.innerText = "Harap masukkan nilai jari-jari dan tinggi yang valid.";
+        return;
+      }
+
+      const pi = 3.14;
+      const selimut = 2 * pi * r * t;
+      const luasPermukaan = selimut + (2 * pi * r * r);
+      const luasAlasDanTinggi = pi * r * r * t; // Volume
+
+      output.innerText += "===============================\n";
+      output.innerText += "\tSelinder Tabung\n";
+      output.innerText += "===============================\n";
+      output.innerText += `Selimut               = ${selimut.toFixed(2)}\n`;
+      output.innerText += `Luas Permukaan        = ${luasPermukaan.toFixed(2)}\n`;
+      output.innerText += `Volume (Luas × Tinggi)= ${luasAlasDanTinggi.toFixed(2)}\n`;
+    }
+  </script>
+
+</body>
+</html>

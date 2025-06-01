@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Predikat Nilai</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+    input {
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+    #output {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Predikat Nilai</h1>
+    <input type="number" id="nilai" placeholder="Masukkan nilai (0 - 100)">
+    <button onclick="cekPredikat()">Cek Predikat</button>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    function cekPredikat() {
+      const nilai = parseFloat(document.getElementById("nilai").value);
+      const output = document.getElementById("output");
+
+      if (isNaN(nilai) || nilai < 0 || nilai > 100) {
+        output.textContent = "Masukkan nilai antara 0 hingga 100.";
+        return;
+      }
+
+      let predikat = "";
+
+      if (nilai >= 85) {
+        predikat = "A";
+      } else if (nilai >= 70) {
+        predikat = "B";
+      } else if (nilai >= 55) {
+        predikat = "C";
+      } else if (nilai >= 40) {
+        predikat = "D";
+      } else {
+        predikat = "E";
+      }
+
+      output.textContent = "Predikat: " + predikat;
+    }
+  </script>
+</body>
+</html>

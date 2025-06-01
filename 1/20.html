@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tabel Perkalian NxN</title>
+  <style>
+    body {
+      font-family: monospace;
+      background-color: #121212;
+      color: #0f0;
+      padding: 20px;
+    }
+    input, button {
+      font-size: 1rem;
+      padding: 5px 10px;
+      margin: 5px 0;
+    }
+    table {
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    td {
+      padding: 6px 12px;
+      border: 1px solid #0f0;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tabel Perkalian NxN</h1>
+  <label for="nInput">Masukkan angka n:</label>
+  <input type="number" id="nInput" min="1" placeholder="contoh: 5" />
+  <button onclick="generateTable()">Buat Tabel</button>
+
+  <div id="result"></div>
+
+  <script>
+    function generateTable() {
+      const n = parseInt(document.getElementById("nInput").value);
+      const result = document.getElementById("result");
+      result.innerHTML = "";
+
+      if (isNaN(n) || n < 1) {
+        alert("Masukkan angka bulat positif yang valid.");
+        return;
+      }
+
+      const table = document.createElement("table");
+
+      for (let i = 1; i <= n; i++) {
+        const row = document.createElement("tr");
+        for (let j = 1; j <= n; j++) {
+          const cell = document.createElement("td");
+          cell.textContent = i * j;
+          row.appendChild(cell);
+        }
+        table.appendChild(row);
+      }
+
+      result.appendChild(table);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prisma Segitiga</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+    input {
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+    #output {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Volume Prisma Segitiga</h1>
+    <input type="number" id="alas" placeholder="Masukkan panjang alas segitiga" />
+    <input type="number" id="tinggiSegitiga" placeholder="Masukkan tinggi segitiga" />
+    <input type="number" id="tinggiPrisma" placeholder="Masukkan tinggi prisma" />
+    <button onclick="hitungVolume()">Hitung Volume</button>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    function hitungVolume() {
+      const alas = parseFloat(document.getElementById("alas").value);
+      const tinggiSegitiga = parseFloat(document.getElementById("tinggiSegitiga").value);
+      const tinggiPrisma = parseFloat(document.getElementById("tinggiPrisma").value);
+
+      if (isNaN(alas) || isNaN(tinggiSegitiga) || isNaN(tinggiPrisma)) {
+        document.getElementById("output").textContent = "Masukkan semua nilai dengan benar.";
+        return;
+      }
+
+      const luasAlas = 0.5 * alas * tinggiSegitiga;
+      const volume = luasAlas * tinggiPrisma;
+
+      document.getElementById("output").textContent = "Volume prisma adalah: " + volume.toFixed(2);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loop dan Total</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f0f0f0;
+    }
+    pre {
+      background: #222;
+      color: #0f0;
+      padding: 15px;
+      border-radius: 8px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>Loop dan Total</h1>
+  <pre id="output"></pre>
+
+  <script>
+    let total = 0;
+    let output = "";
+
+    for (let i = 1; i <= 5; i++) {
+      output += i + "\n";
+      total += i;
+    }
+    output += "— +\n" + total;
+
+    document.getElementById("output").textContent = output;
+  </script>
+</body>
+</html>

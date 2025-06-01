@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tebak Angka</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+    input {
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+    #output {
+      margin-top: 1rem;
+      font-weight: bold;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Tebak Angka</h1>
+    
+    <input type="number" id="guess" placeholder="Tebak angka (antara 0–100)" />
+    <button onclick="hitung()">Tebak</button>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    const angkaRahasia = 23;
+
+    function hitung() {
+      const guess = parseFloat(document.getElementById("guess").value);
+      let pesan = "";
+
+      if (isNaN(guess)) {
+        pesan = "Masukkan angka yang valid.";
+      } else if (guess === angkaRahasia) {
+        pesan = "Selamat! Kamu menebak dengan benar.\nTapi kamu tidak memenangkan hadiah apa pun!";
+      } else if (guess < angkaRahasia) {
+        pesan = "Tidak, angkanya sedikit lebih tinggi dari itu.";
+      } else {
+        pesan = "Tidak, angkanya sedikit lebih rendah dari itu.";
+      }
+
+      document.getElementById("output").textContent = pesan;
+    }
+  </script>
+</body>
+</html>

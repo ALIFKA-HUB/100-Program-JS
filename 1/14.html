@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pola Bintang Naik Turun</title>
+  <style>
+    body {
+      font-family: monospace;
+      background-color: #121212;
+      color: #0f0;
+      padding: 20px;
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pola Bintang Naik dan Turun</h1>
+  <pre id="output"></pre>
+
+  <script>
+    let output = "";
+
+    // Naik dari 1 sampai 5 bintang
+    for (let i = 1; i <= 5; i++) {
+      output += "*".repeat(i) + "\n";
+    }
+
+    // Turun dari 4 sampai 1 bintang
+    for (let i = 4; i > 0; i--) {
+      output += "*".repeat(i) + "\n";
+    }
+
+    document.getElementById("output").textContent = output;
+  </script>
+</body>
+</html>

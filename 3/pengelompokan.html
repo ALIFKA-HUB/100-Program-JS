@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pengelompokan</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+    input {
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+    #output {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Pengelompokan Bilangan</h1>
+    <input type="number" id="angka" placeholder="Masukkan bilangan" />
+    <button onclick="kelompokkan()">Kelompokkan</button>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    function kelompokkan() {
+      const angka = parseFloat(document.getElementById("angka").value);
+      let hasil = "";
+
+      if (isNaN(angka)) {
+        hasil = "Masukkan angka yang valid.";
+      } else {
+        if (angka === 0) {
+          hasil = "Angka adalah nol.";
+        } else {
+          hasil = "Angka adalah " + (angka > 0 ? "positif" : "negatif");
+          hasil += angka % 2 === 0 ? " dan genap." : " dan ganjil.";
+        }
+      }
+
+      document.getElementById("output").textContent = hasil;
+    }
+  </script>
+</body>
+</html>

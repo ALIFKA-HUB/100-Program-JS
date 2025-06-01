@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Alifka</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      font-size: 1.4rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="box" id="output"></div>
+
+  <script>
+    let jumlah = 0;
+    let outputText = "";
+
+    for (let deret = 0; deret < 5; deret++) {
+      outputText += (deret + 1) + " ";
+      jumlah += (deret + 1);
+    }
+
+    outputText += "= " + jumlah;
+    document.getElementById("output").textContent = outputText;
+  </script>
+</body>
+</html>

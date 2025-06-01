@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pola Bintang Gabungan</title>
+  <style>
+    body {
+      font-family: monospace, monospace;
+      background-color: #121212;
+      color: #00ff00;
+      padding: 20px;
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pola Bintang Gabungan</h1>
+  <pre id="output"></pre>
+
+  <script>
+    let output = "";
+
+    // Naik dari 1 sampai 4 bintang
+    for (let i = 1; i < 5; i++) {
+      output += "*".repeat(i) + "\n";
+    }
+
+    // Baris tengah 7 bintang
+    output += "*".repeat(7) + "\n";
+
+    // Turun dari 4 sampai 1 bintang
+    for (let i = 4; i > 0; i--) {
+      output += "*".repeat(i) + "\n";
+    }
+
+    document.getElementById("output").textContent = output;
+  </script>
+</body>
+</html>

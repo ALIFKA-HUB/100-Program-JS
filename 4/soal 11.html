@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Hitung Diskon</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      padding: 30px;
+    }
+    .container {
+      background-color: #fff;
+      padding: 25px;
+      max-width: 500px;
+      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Perhitungan Diskon</h2>
+
+    <label for="harga">Masukkan total harga barang (Rp):</label>
+    <input type="number" id="harga" placeholder="Contoh: 150000" min="0">
+
+    <button onclick="hitungDiskon()">Hitung</button>
+
+    <div class="result" id="output"></div>
+  </div>
+
+  <script>
+    function hitungDiskon() {
+      const harga = parseFloat(document.getElementById("harga").value);
+      if (isNaN(harga) || harga < 0) {
+        document.getElementById("output").innerHTML = "<p style='color:red'>Masukkan harga yang valid.</p>";
+        return;
+      }
+
+      let diskon = 0;
+      if (harga >= 100000) {
+        diskon = harga * 0.05;
+      }
+
+      const totalBayar = harga - diskon;
+
+      document.getElementById("output").innerHTML = `
+        <p>Diskon yang didapat: <strong>Rp ${diskon.toFixed(2)}</strong></p>
+        <p>Total yang harus dibayar: <strong>Rp ${totalBayar.toFixed(2)}</strong></p>
+      `;
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hitung Sum dan Average</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+    label, input, button {
+      font-size: 1rem;
+      margin: 5px 0;
+      display: block;
+      width: 300px;
+    }
+    #result {
+      margin-top: 15px;
+      font-family: monospace;
+      background-color: #222;
+      color: #0f0;
+      padding: 15px;
+      border-radius: 8px;
+      white-space: pre-wrap;
+      width: fit-content;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hitung Sum dan Average</h1>
+  <label for="numbers">Masukkan angka dipisah spasi:</label>
+  <input type="text" id="numbers" placeholder="contoh: 1 2 3 4 5" />
+  <button onclick="hitung()">Hitung</button>
+
+  <div id="result"></div>
+
+  <script>
+    function hitung() {
+      const input = document.getElementById("numbers").value.trim();
+      if (!input) {
+        alert("Tolong masukkan angka terlebih dahulu!");
+        return;
+      }
+
+      // Konversi string ke array angka
+      const numbers = input.split(/\s+/).map(x => Number(x));
+
+      // Validasi semua input adalah angka valid
+      if (numbers.some(isNaN)) {
+        alert("Masukkan hanya angka yang valid, dipisah spasi.");
+        return;
+      }
+
+      const total = numbers.reduce((a, b) => a + b, 0);
+      const average = total / numbers.length;
+
+      document.getElementById("result").textContent =
+        `Sum = ${total}, Average = ${average.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>

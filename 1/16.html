@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pola Diamond Bintang</title>
+  <style>
+    body {
+      font-family: monospace;
+      background-color: #121212;
+      color: #0f0;
+      padding: 20px;
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pola Diamond Bintang</h1>
+  <pre id="output"></pre>
+
+  <script>
+    let output = "";
+    const maxWidth = 5;
+
+    for (let i = 1; i <= 5; i += 2) {
+      let spaces = (maxWidth - i) / 2;
+      output += " ".repeat(spaces) + "*".repeat(i) + "\n";
+    }
+
+    for (let i = 3; i >= 1; i -= 2) {
+      let spaces = (maxWidth - i) / 2;
+      output += " ".repeat(spaces) + "*".repeat(i) + "\n";
+    }
+
+    document.getElementById("output").textContent = output;
+  </script>
+</body>
+</html>

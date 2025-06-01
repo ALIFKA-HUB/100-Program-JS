@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kategori Ukuran Sepatu</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #eef2f3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+    input {
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+    #output {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Kategori Ukuran Sepatu</h1>
+    <input type="number" id="ukuran" placeholder="Masukkan ukuran sepatu (misal 42)">
+    <button onclick="cekUkuran()">Cek Kategori</button>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    function cekUkuran() {
+      const ukuran = parseInt(document.getElementById("ukuran").value);
+      const output = document.getElementById("output");
+
+      if (isNaN(ukuran)) {
+        output.textContent = "Masukkan ukuran sepatu dengan benar.";
+        return;
+      }
+
+      let kategori = "";
+
+      if (ukuran < 38) {
+        kategori = "Kecil";
+      } else if (ukuran >= 38 && ukuran <= 42) {
+        kategori = "Sedang";
+      } else {
+        kategori = "Besar";
+      }
+
+      output.textContent = `Ukuran ${ukuran} termasuk kategori: ${kategori}`;
+    }
+  </script>
+</body>
+</html>

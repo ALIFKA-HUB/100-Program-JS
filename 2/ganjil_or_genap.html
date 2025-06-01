@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cek Ganjil / Genap</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+      text-align: center;
+    }
+    input, button {
+      margin: 10px 0;
+      padding: 10px;
+      width: 100%;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Cek Ganjil / Genap</h2>
+  <input type="number" id="number" placeholder="Masukkan angka" />
+  <button onclick="process()">Check</button>
+  <div id="result"></div>
+</div>
+
+<script>
+
+function process() {
+  const num = parseInt(document.getElementById('number').value);
+  if (isNaN(num)) {
+    document.getElementById('result').textContent = "Masukkan angka yang valid.";
+    return;
+  }
+  const result = num % 2 === 0 ? "Bilangan Genap" : "Bilangan Ganjil";
+  document.getElementById('result').textContent = `Hasil: ${result}`;
+}
+
+</script>
+
+</body>
+</html>

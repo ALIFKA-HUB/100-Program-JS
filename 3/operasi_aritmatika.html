@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Operasi Aritmatika</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+    input, select {
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+    #output {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Operasi Aritmatika</h1>
+    <input type="number" id="angka1" placeholder="Masukkan angka pertama" />
+    <input type="number" id="angka2" placeholder="Masukkan angka kedua" />
+    <select id="operasi">
+      <option value="tambah">Penjumlahan (+)</option>
+      <option value="kurang">Pengurangan (-)</option>
+      <option value="kali">Perkalian (×)</option>
+      <option value="bagi">Pembagian (/)</option>
+      <option value="modulus">Modulus (%)</option>
+    </select>
+    <button onclick="hitung()">Hitung</button>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    function hitung() {
+      const angka1 = parseFloat(document.getElementById("angka1").value);
+      const angka2 = parseFloat(document.getElementById("angka2").value);
+      const operasi = document.getElementById("operasi").value;
+      let hasil = "";
+
+      if (isNaN(angka1) || isNaN(angka2)) {
+        hasil = "Masukkan kedua angka dengan benar.";
+      } else {
+        switch (operasi) {
+          case "tambah":
+            hasil = angka1 + angka2;
+            break;
+          case "kurang":
+            hasil = angka1 - angka2;
+            break;
+          case "kali":
+            hasil = angka1 * angka2;
+            break;
+          case "bagi":
+            if (angka2 === 0) {
+              hasil = "Tidak bisa dibagi dengan nol.";
+            } else {
+              hasil = angka1 / angka2;
+            }
+            break;
+          case "modulus":
+            if (angka2 === 0) {
+              hasil = "Tidak bisa modulus dengan nol.";
+            } else {
+              hasil = angka1 % angka2;
+            }
+            break;
+        }
+      }
+
+      document.getElementById("output").textContent = "Hasil: " + hasil;
+    }
+  </script>
+</body>
+</html>

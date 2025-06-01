@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Alifka</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .output {
+      background: #fff;
+      padding: 25px 35px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      font-size: 1.5rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="output" id="result"></div>
+
+  <script>
+    let total = 0;
+    let result = "";
+
+    for (let i = 1; i <= 5; i++) {
+      result += (i < 5) ? `${i} + ` : `${i} `;
+      total += i;
+    }
+
+    result += `= ${total}`;
+    document.getElementById("result").textContent = result;
+  </script>
+</body>
+</html>

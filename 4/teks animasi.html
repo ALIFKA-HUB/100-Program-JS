@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Teks Animasi</title>
+  <style>
+    body {
+      font-family: 'Courier New', monospace;
+      background: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 600px;
+      text-align: center;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1e40af;
+    }
+    #output {
+      margin-top: 1rem;
+      background-color: #eee;
+      padding: 1rem;
+      border-radius: 5px;
+      white-space: pre-wrap;
+      min-height: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Teks Animasi Mengetik</h2>
+    <button onclick="animatedText('Halo, selamat datang di JavaScript!')">Jalankan</button>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    function animatedText(text) {
+      const output = document.getElementById("output");
+      output.innerText = ""; // Clear previous output
+      let i = 0;
+
+      const interval = setInterval(() => {
+        if (i < text.length) {
+          output.innerText += text[i];
+          i++;
+        } else {
+          clearInterval(interval);
+        }
+      }, 100); // 100 ms delay per character
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Kategori Suhu</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f4f6;
+      padding: 30px;
+    }
+    .container {
+      background-color: white;
+      padding: 25px;
+      max-width: 450px;
+      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1e40af;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Kategori Suhu</h2>
+
+    <label for="suhu">Masukkan suhu dalam Celcius:</label>
+    <input type="number" id="suhu" placeholder="Contoh: 25">
+
+    <button onclick="cekSuhu()">Cek Suhu</button>
+
+    <div class="result" id="output"></div>
+  </div>
+
+  <script>
+    function cekSuhu() {
+      const suhu = parseFloat(document.getElementById("suhu").value);
+      const output = document.getElementById("output");
+
+      if (isNaN(suhu)) {
+        output.innerHTML = "<p style='color:red;'>Masukkan angka suhu yang valid.</p>";
+        return;
+      }
+
+      let kategori = "";
+
+      if (suhu < 0) {
+        kategori = "Suhu sangat dingin (bawah nol).";
+      } else if (suhu <= 20) {
+        kategori = "Suhu dingin.";
+      } else if (suhu <= 30) {
+        kategori = "Suhu sedang.";
+      } else {
+        kategori = "Suhu panas.";
+      }
+
+      output.innerHTML = `<p><strong>Hasil:</strong> ${kategori}</p>`;
+    }
+  </script>
+
+</body>
+</html>

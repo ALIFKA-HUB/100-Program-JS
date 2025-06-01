@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Hitung Total Harga</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef2f3;
+      padding: 30px;
+    }
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 400px;
+      margin: auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    .result {
+      font-size: 1.2em;
+      text-align: center;
+      margin-top: 20px;
+      color: #007b00;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Total Harga Sepatu</h2>
+    <div class="result" id="output"></div>
+  </div>
+
+  <script>
+    // Deklarasi variabel
+    const QTY = 23;
+    const harga_sepatu = 45000;
+
+    // Menghitung total harga
+    const total_harga = QTY * harga_sepatu;
+
+    // Menampilkan hasil
+    document.getElementById("output").textContent = `Total harga: Rp ${total_harga.toLocaleString("id-ID")}`;
+  </script>
+
+</body>
+</html>

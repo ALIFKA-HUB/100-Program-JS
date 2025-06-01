@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Output JS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    .output {
+      background: white;
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 8px;
+      max-width: 400px;
+      margin: auto;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .line {
+      margin: 8px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="output" id="output">
+    <!-- Output dari JavaScript akan muncul di sini -->
+  </div>
+
+  <script>
+    // Output JavaScript (setara dengan print di Python)
+    const outputDiv = document.getElementById("output");
+
+    function print(value) {
+      const line = document.createElement("div");
+      line.className = "line";
+      line.textContent = value;
+      outputDiv.appendChild(line);
+    }
+
+    print("Ini adalah string");
+    print(3.14);
+    print(42);
+  </script>
+
+</body>
+</html>

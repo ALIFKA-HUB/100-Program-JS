@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Luas Persegi Panjang</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+    input, select {
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+    #output {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Luas Persegi Panjang</h1>
+    
+    <input type="number" id="panjang" placeholder="Masukkan panjang" />
+<input type="number" id="lebar" placeholder="Masukkan lebar" />
+    <button onclick="hitung()">Hitung</button>
+    <div id="output"></div>
+    <script>
+      function hitung() {
+        const panjang = parseFloat(document.getElementById("panjang").value);
+        const lebar = parseFloat(document.getElementById("lebar").value);
+        if (isNaN(panjang) || isNaN(lebar)) {
+          document.getElementById("output").textContent = "Masukkan semua nilai dengan benar.";
+          return;
+        }
+        document.getElementById("output").textContent = "Luasnya adalah = " + (panjang * lebar);
+      }
+    </script>
+    
+  </div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rumus Kerucut</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+    input {
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+    #output {
+      margin-top: 1rem;
+      font-weight: bold;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Rumus Kerucut</h1>
+    <input type="number" id="jari" placeholder="Jari-jari alas (r)">
+    <input type="number" id="tinggi" placeholder="Tinggi (t)">
+    <input type="number" id="garisPelukis" placeholder="Garis pelukis (s)">
+    <button onclick="hitungKerucut()">Hitung</button>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    function hitungKerucut() {
+      const r = parseFloat(document.getElementById("jari").value);
+      const t = parseFloat(document.getElementById("tinggi").value);
+      const s = parseFloat(document.getElementById("garisPelukis").value);
+      const output = document.getElementById("output");
+
+      if (isNaN(r) || isNaN(t) || isNaN(s)) {
+        output.textContent = "Masukkan semua nilai dengan benar.";
+        return;
+      }
+
+      const phi = 3.14159265;
+      const volume = (1/3) * phi * r * r * t;
+      const luasPermukaan = phi * r * (r + s);
+
+      output.textContent = 
+        `Volume: ${volume.toFixed(2)} satuan³\n` +
+        `Luas Permukaan: ${luasPermukaan.toFixed(2)} satuan²`;
+    }
+  </script>
+</body>
+</html>

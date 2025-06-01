@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perulangan Tanpa Batas (Simulasi)</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+    input {
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+    #output {
+      margin-top: 1rem;
+      font-weight: bold;
+      white-space: pre-wrap; /* agar \n tampil sebagai baris baru */
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Perulangan Tanpa Batas (Simulasi)</h1>
+    
+    <input type="number" id="jumlah" placeholder="Berapa kali perulangan dijalankan" />
+    <button onclick="hitung()">Hitung</button>
+    <div id="output"></div>
+
+    <script>
+      function hitung() {
+        const jumlah = parseInt(document.getElementById("jumlah").value);
+        const output = document.getElementById("output");
+
+        if (isNaN(jumlah) || jumlah <= 0) {
+          output.textContent = "Masukkan angka lebih dari 0.";
+          return;
+        }
+
+        let result = "";
+        for (let i = 1; i <= jumlah; i++) {
+          result += `Perulangan ke-${i}\n`;
+        }
+
+        output.textContent = result;
+      }
+    </script>
+    
+  </div>
+</body>
+</html>

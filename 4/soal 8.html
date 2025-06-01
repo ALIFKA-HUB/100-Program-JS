@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Program Tabung</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef2f7;
+      padding: 30px;
+    }
+    .container {
+      background: #ffffff;
+      padding: 25px;
+      max-width: 500px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #219150;
+    }
+    .result {
+      margin-top: 25px;
+      font-size: 1rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>PROGRAM TABUNG</h2>
+
+    <label for="jari">Masukkan jari-jari tabung (r):</label>
+    <input type="number" id="jari" step="any" placeholder="Contoh: 7.5">
+
+    <label for="tinggi">Masukkan tinggi tabung (t):</label>
+    <input type="number" id="tinggi" step="any" placeholder="Contoh: 10">
+
+    <button onclick="hitungTabung()">Hitung</button>
+
+    <div class="result" id="hasil"></div>
+  </div>
+
+  <script>
+    function hitungTabung() {
+      const r = parseFloat(document.getElementById("jari").value);
+      const t = parseFloat(document.getElementById("tinggi").value);
+
+      if (isNaN(r) || isNaN(t) || r <= 0 || t <= 0) {
+        document.getElementById("hasil").innerHTML = "<p style='color:red'>Masukkan angka yang valid untuk jari-jari dan tinggi.</p>";
+        return;
+      }
+
+      const phi = Math.PI;
+      const volume = 2 * phi * r * t;
+      const luasPermukaan = phi * r * r + 2 * phi * r * t;
+
+      document.getElementById("hasil").innerHTML = `
+        <p>Volumenya adalah: <strong>${volume.toFixed(2)}</strong></p>
+        <p>Luas permukaannya adalah: <strong>${luasPermukaan.toFixed(2)}</strong></p>
+      `;
+    }
+  </script>
+
+</body>
+</html>

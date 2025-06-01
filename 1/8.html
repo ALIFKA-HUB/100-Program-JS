@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loop Bilangan Genap</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+      background-color: #fafafa;
+    }
+    pre {
+      background-color: #1e1e1e;
+      color: #33ff33;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>Loop Bilangan Genap 2 sampai 10</h1>
+  <pre id="output"></pre>
+
+  <script>
+    let total = 0;
+    let output = "";
+
+    for (let i = 2; i <= 10; i += 2) {
+      output += i + " ";
+      if (i < 10) {
+        output += "+ ";
+      }
+      total += i;
+    }
+    output += "= " + total;
+
+    document.getElementById("output").textContent = output;
+  </script>
+</body>
+</html>

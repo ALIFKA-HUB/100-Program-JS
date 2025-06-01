@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Informasi Kelompok</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f6fc;
+      padding: 30px;
+    }
+    .container {
+      background: #ffffff;
+      padding: 25px;
+      max-width: 500px;
+      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    .result {
+      margin-top: 25px;
+      font-size: 1rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Data Kelompok</h2>
+
+    <label for="kelompok">Masukkan nama kelompok:</label>
+    <input type="text" id="kelompok" placeholder="Contoh: Kelompok 3">
+
+    <label for="asal">Masukkan asal daerah:</label>
+    <input type="text" id="asal" placeholder="Contoh: Jakarta">
+
+    <label for="jumlah">Masukkan jumlah orang dalam tim:</label>
+    <input type="number" id="jumlah" placeholder="Contoh: 5">
+
+    <button onclick="tampilkanData()">Tampilkan Data</button>
+
+    <div class="result" id="output"></div>
+  </div>
+
+  <script>
+    function tampilkanData() {
+      const kelompok = document.getElementById("kelompok").value.trim();
+      const asal = document.getElementById("asal").value.trim();
+      const jumlah = document.getElementById("jumlah").value.trim();
+
+      if (!kelompok || !asal || !jumlah) {
+        document.getElementById("output").innerHTML = "<p style='color:red'>Semua data wajib diisi.</p>";
+        return;
+      }
+
+      document.getElementById("output").innerHTML = `
+        <p><strong>Kelompok:</strong> ${kelompok}</p>
+        <p><strong>Asal Daerah:</strong> ${asal}</p>
+        <p><strong>Jumlah Orang:</strong> ${jumlah}</p>
+      `;
+    }
+  </script>
+
+</body>
+</html>

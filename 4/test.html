@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Konversi Suhu</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f5f5f5;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 600px;
+    }
+    input, button {
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      width: 100%;
+    }
+    pre {
+      background: #eee;
+      padding: 1rem;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Konversi Suhu</h2>
+    <div id="app">
+      <label>Masukkan suhu dalam derajat Celcius:
+        <input id="input0" type="number" placeholder="Contoh: 30">
+      </label><br>
+      <button onclick="handleClick()">Jalankan</button>
+    </div>
+    <pre id="output"></pre>
+  </div>
+
+  <script>
+    function handleClick() {
+      const output = document.getElementById("output");
+      const nilai = parseFloat(document.getElementById("input0").value);
+
+      if (isNaN(nilai)) {
+        output.innerText = "Masukkan angka yang valid.";
+        return;
+      }
+
+      const R = (4 / 5) * nilai;
+      const F = (9 / 5) * nilai + 32;
+      const K = nilai + 273.15;
+
+      output.innerText = 
+`Reamur     = ${R.toFixed(2)} °R
+Fahrenheit = ${F.toFixed(2)} °F
+Kelvin     = ${K.toFixed(2)} K`;
+    }
+  </script>
+</body>
+</html>

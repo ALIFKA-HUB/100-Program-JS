@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cetak a a a a a</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+    pre {
+      background-color: #222;
+      color: #0f0;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cetak "a a a a a" sebanyak 5 kali</h1>
+  <pre id="output"></pre>
+
+  <script>
+    let output = "";
+    for (let i = 0; i < 5; i++) {
+      output += "a a a a a\n";
+    }
+    document.getElementById("output").textContent = output;
+  </script>
+</body>
+</html>

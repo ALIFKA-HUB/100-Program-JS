@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test2v2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 600px;
+        }
+        input, button {
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            width: 100%;
+        }
+        pre {
+            background: #eee;
+            padding: 1rem;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>test2v2</h2>
+        <div id="app">
+            <label>Masukkan nilai 1-100 untuk pengelompokan: 
+                <input id="input0" type="number" min="1" max="100">
+            </label><br>
+            <button onclick="handleClick()">Jalankan</button>
+        </div>
+        <pre id="output"></pre>
+    </div>
+    <script>
+        function handleClick() {
+            const input = document.getElementById("input0").value;
+            const a = parseInt(input);
+            const output = document.getElementById("output");
+
+            output.innerText = "";
+
+            if (isNaN(a)) {
+                output.innerText = "Masukkan angka yang valid.";
+                return;
+            }
+
+            if (a <= 50) {
+                if (a <= 25) {
+                    output.innerText = "A1";
+                } else {
+                    output.innerText = "A2";
+                }
+            } else if (a <= 100) {
+                if (a <= 75) {
+                    output.innerText = "B1";
+                } else {
+                    output.innerText = "B2";
+                }
+            } else {
+                output.innerText = "Nilai tidak valid (harus 1–100)";
+            }
+        }
+    </script>
+</body>
+</html>

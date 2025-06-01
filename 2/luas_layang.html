@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Luas Layang-layang</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+      text-align: center;
+    }
+    input, button {
+      margin: 10px 0;
+      padding: 10px;
+      width: 100%;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Luas Layang-layang</h2>
+  
+<input type="number" id="d1" placeholder="Diagonal 1" />
+<input type="number" id="d2" placeholder="Diagonal 2" />
+  <button onclick="process()">Check</button>
+  <div id="result"></div>
+</div>
+
+<script>
+
+function process() {
+  const d1 = parseFloat(document.getElementById('d1').value);
+  const d2 = parseFloat(document.getElementById('d2').value);
+  if (isNaN(d1) || isNaN(d2)) {
+    document.getElementById('result').textContent = "Masukkan nilai diagonal yang valid.";
+    return;
+  }
+  const luas = (d1 * d2) / 2;
+  document.getElementById('result').textContent = `Luas Layang-layang: ${luas}`;
+}
+
+</script>
+
+</body>
+</html>

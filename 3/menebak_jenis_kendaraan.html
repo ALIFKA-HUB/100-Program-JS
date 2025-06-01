@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Menebak Jenis Kendaraan</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      max-width: 400px;
+      width: 100%;
+    }
+    input, button {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+    pre {
+      background: #eee;
+      padding: 1rem;
+      margin-top: 1rem;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Jenis Kendaraan dari Jumlah Ban</h2>
+    <label>Masukkan jumlah ban</label>
+    <input type="number" id="ban" placeholder="Contoh: 4" />
+    <button onclick="tebakKendaraan()">Tebak Jenis Kendaraan</button>
+    <pre id="output"></pre>
+  </div>
+
+  <script>
+    function tebakKendaraan() {
+      const ban = parseInt(document.getElementById("ban").value);
+      let jenis;
+
+      if (ban === 2) {
+        jenis = "Sepeda Motor";
+      } else if (ban === 3) {
+        jenis = "Becak atau Bajaj";
+      } else if (ban === 4) {
+        jenis = "Mobil";
+      } else if (ban >= 6 && ban <= 10) {
+        jenis = "Bus atau Truk Sedang";
+      } else if (ban > 10) {
+        jenis = "Truk Berat atau Kendaraan Industri";
+      } else {
+        jenis = "Tidak dikenali atau input tidak valid";
+      }
+
+      document.getElementById("output").textContent = "Jenis Kendaraan: " + jenis;
+    }
+  </script>
+</body>
+</html>

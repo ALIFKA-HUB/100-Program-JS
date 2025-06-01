@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Status Keanggotaan Acak</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f4f6;
+      padding: 30px;
+    }
+    .container {
+      background: #fff;
+      padding: 25px;
+      max-width: 500px;
+      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #10b981;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #059669;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 1rem;
+    }
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Status Keanggotaan Acak</h2>
+
+    <label for="namaList">Masukkan daftar nama (pisahkan dengan koma):</label>
+    <textarea id="namaList" rows="4" placeholder="Contoh: Andi, Budi, Citra, Diah, Edo"></textarea>
+
+    <button onclick="acakStatus()">Acak Status</button>
+
+    <div class="result" id="output"></div>
+  </div>
+
+  <script>
+    function acakStatus() {
+      const namaInput = document.getElementById("namaList").value.trim();
+      const namaArray = namaInput.split(",").map(n => n.trim()).filter(n => n !== "");
+      
+      const statusTersedia = ["Ketua", "Wakil Ketua", "Sekretaris", "Bendahara"];
+      const hasil = [];
+
+      if (namaArray.length === 0) {
+        document.getElementById("output").innerHTML = "<p style='color:red;'>Masukkan minimal satu nama.</p>";
+        return;
+      }
+
+      // Acak nama
+      const namaAcak = namaArray.sort(() => Math.random() - 0.5);
+
+      namaAcak.forEach((nama, index) => {
+        const status = index < statusTersedia.length ? statusTersedia[index] : "Anggota";
+        hasil.push(`<li><strong>${nama}</strong>: ${status}</li>`);
+      });
+
+      document.getElementById("output").innerHTML = `
+        <p><strong>Hasil Pengacakan Keanggotaan:</strong></p>
+        <ul>${hasil.join("")}</ul>
+      `;
+    }
+  </script>
+
+</body>
+</html>

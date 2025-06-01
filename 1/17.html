@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pola Huruf Berulang</title>
+  <style>
+    body {
+      font-family: monospace;
+      background-color: #121212;
+      color: #0f0;
+      padding: 20px;
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pola Huruf Berulang</h1>
+  <pre id="output"></pre>
+
+  <script>
+    const letters = "abcde";
+    let output = "";
+
+    for (let i = 0; i < letters.length; i++) {
+      let letter = letters[i];
+      output += letter.repeat(i + 1) + "\n";
+    }
+
+    document.getElementById("output").textContent = output;
+  </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nested if-else</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+    input {
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+    #output {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Penilaian Nilai (Nested if-else)</h1>
+    <input type="number" id="nilai" placeholder="Masukkan nilai (0-100)" />
+    <button onclick="cekNilai()">Cek Hasil</button>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    function cekNilai() {
+      const nilai = parseInt(document.getElementById("nilai").value);
+      let hasil = "";
+
+      if (nilai >= 0 && nilai <= 100) {
+        if (nilai >= 90) {
+          hasil = "Nilai A (Sangat Baik)";
+        } else if (nilai >= 75) {
+          hasil = "Nilai B (Baik)";
+        } else if (nilai >= 60) {
+          hasil = "Nilai C (Cukup)";
+        } else {
+          hasil = "Nilai D (Tidak Lulus)";
+        }
+      } else {
+        hasil = "Nilai tidak valid. Harus antara 0 dan 100.";
+      }
+
+      document.getElementById("output").textContent = hasil;
+    }
+  </script>
+</body>
+</html>

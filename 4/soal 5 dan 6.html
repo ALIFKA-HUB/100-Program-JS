@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Hitung Rata-Rata</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e7f0f7;
+      padding: 30px;
+    }
+    .container {
+      background: #fff;
+      padding: 20px;
+      max-width: 400px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    .info {
+      margin-top: 20px;
+    }
+    .info p {
+      margin: 10px 0;
+      font-size: 1rem;
+    }
+    .label {
+      font-weight: bold;
+      color: #34495e;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Perhitungan Rata-Rata</h2>
+    <div class="info" id="output"></div>
+  </div>
+
+  <script>
+    // Deklarasi variabel angka
+    const angka1 = 87.77;
+    const angka2 = 66.50;
+    const angka3 = 97.5;
+
+    // Perhitungan jumlah dan rata-rata
+    const jumlah = angka1 + angka2 + angka3;
+    const rata_rata = jumlah / 3;
+
+    // Format ke 2 desimal
+    const format = (num) => num.toFixed(2);
+
+    // Menampilkan hasil
+    const output = `
+      <p><span class="label">Angka 1:</span> ${format(angka1)}</p>
+      <p><span class="label">Angka 2:</span> ${format(angka2)}</p>
+      <p><span class="label">Angka 3:</span> ${format(angka3)}</p>
+      <p><span class="label">Jumlah:</span> ${format(jumlah)}</p>
+      <p><span class="label">Rata-rata:</span> ${format(rata_rata)}</p>
+    `;
+
+    document.getElementById("output").innerHTML = output;
+  </script>
+
+</body>
+</html>
